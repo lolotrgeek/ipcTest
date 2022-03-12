@@ -11,7 +11,7 @@ let waiting = setInterval(() => {
         clearInterval(waiting)
         Write()
     } catch (error) {
-        console.log('Waiting for python...')
+        console.log('Waiting for python or julia...')
     }
 
 }, 1000)
@@ -33,7 +33,7 @@ function Write() {
         }, 1000)  // Write data at 1 second interval
 
         fifoRs.on('data', data => {
-
+            
             now_time = new Date()
             sent_time = new Date(data.toString())
             latency = (now_time - sent_time)
